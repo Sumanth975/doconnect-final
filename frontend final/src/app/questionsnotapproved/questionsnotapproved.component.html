@@ -1,0 +1,17 @@
+<app-header></app-header>
+<div class="container">
+    <div class="questiondiv" *ngFor="let questionof of questions.data">
+      
+      <p  class="question" *ngIf="!questionof.approved && !questionof.deleted">Qn. {{questionof.question}}</p>
+      <button type="btn btn-primary" *ngIf="!questionof.approved && !questionof.deleted" (click)=submit(questionof.id) class="btn btn-success">approve</button>
+      <button type="btn btn-danger" *ngIf="!questionof.approved && !questionof.deleted" (click)=deleteQuestion(questionof.id) class="btn btn-success">delete</button>
+      
+      <div *ngFor="let answer of questionof.answers">
+        <p *ngIf="!questionof.approved">ans</p>
+        <p class="answer" *ngIf="!questionof.approved">{{answer.answer}}</p>
+      </div>
+     
+    </div>
+  </div>
+  
+  

@@ -1,0 +1,16 @@
+<app-header></app-header>
+<app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
+<div class="container">
+  <div class="questiondiv" *ngFor="let questionof of questions.data">
+    <div *ngIf="searchText ==='' || questionof.question.toLowerCase().includes(searchText)">
+    <p  class="question" *ngIf="questionof.approved">Qn. {{questionof.question}}</p>
+    <button type="button" *ngIf="loggined && questionof.approved" (click)=submit(questionof.id) class="btn btn-success">answer</button>
+    
+    <div *ngFor="let answer of questionof.answers">
+      
+      <p class="answer" *ngIf="questionof.approved && answer.approved">Ans .{{answer.answer}}</p>
+    </div>
+  </div>
+   
+  </div>
+</div>

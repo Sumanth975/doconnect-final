@@ -1,0 +1,47 @@
+<app-header></app-header>
+
+<div class="row">
+  <div class="col-sm-4 mx-auto">
+    <h6>chat here</h6>
+    <div class="card shadow" style="margin-top: 10px">
+      <div class="card-header bg-white">
+        <div *ngFor="let message of messages">
+            <small>{{message.fromUser}}</small>
+            <p>{{message.message}}</p>
+            
+        </div>
+    </div>
+    </div>
+    </div>
+</div>
+<pre></pre>
+      <div class="container">
+        <div class="col-sm-4 mx-auto">
+        <form [formGroup]="fg" (submit)="send(fg.value)" novalidate>
+          <div class="form-group">
+            <input
+              type="text"
+              formControlName="message"
+              required
+              name="message"
+              placeholder="message"
+              class="form-control float-right"
+            />
+            <small
+              class="form-text text-danger"
+              *ngIf="submitted && !fg.controls['message'].valid"
+              >message must be given</small
+            >
+            
+            <input
+            type="submit"
+            value="send"
+            class="btn btn-primary float-right"
+          />
+          </div>
+          
+          
+        </form>
+    </div>
+      </div>
+    

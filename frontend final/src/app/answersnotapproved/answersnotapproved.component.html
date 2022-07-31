@@ -1,0 +1,26 @@
+<app-header></app-header>
+<div class="container">
+    <div class="questiondiv" *ngFor="let questionof of questions.data">
+      
+      <div *ngFor="let answer of questionof.answers">
+        <p class="question" *ngIf="questionof.approved && !answer.approved">Qns .{{questionof.question}}</p>
+        <div *ngIf="!answer.approved">
+          <p>ans</p>
+          <p>{{answer.answer}}</p>
+          <button type="btn btn-primary" *ngIf="questionof.approved && !answer.approved" (click)=approveAnswer(answer.id) class="btn btn-success">approve</button>
+        <button type="btn btn-danger" *ngIf="questionof.approved && !answer.approved" (click)=deleteAnswer(answer.id) class="btn btn-success">delete</button>
+    
+        </div>
+      </div>
+     <!-- <p  class="question" *ngIf="!questionof.answers.approved">Qn. {{questionof.question}}</p>
+      <pre></pre>
+      <div *ngFor="let answer of questionof.answers">
+        <p *ngIf="questionof.approved && !answer.approved">ans</p>
+        <p class="answer" *ngIf="questionof.approved && !answer.approved">{{answer.answer}}</p>
+        <button type="btn btn-primary" *ngIf="questionof.approved && !answer.approved" (click)=approveAnswer(answer.id) class="btn btn-success">approve</button>
+        <button type="btn btn-danger" *ngIf="questionof.approved && !answer.approved" (click)=deleteAnswer(answer.id) class="btn btn-success">delete</button>
+    
+      </div>-->
+    </div>
+  </div>
+  
